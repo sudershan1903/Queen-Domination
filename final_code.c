@@ -155,16 +155,13 @@ int place(int row,int column)
  int i,c=0;
  for(i=1;i<=row-1;++i)
  {
-  //checking column and diagonal conflicts
   if(board[i]==column)
   {
-     // printf("\n1) %d-%d-%d-%d-%d",i,board[i],row,column,c);
    return c;
   }
   else
    if(abs(board[i]-column)==abs(i-row))
    {
-      // printf("\n2) %d-%d-%d-%d-%d",i,abs(board[i]-column),abs(i-row),c);
     return 0;
    }
  }
@@ -181,13 +178,9 @@ void queen(int row,int n)
   if(place(row,column))
   {
    board[row]=column; //no conflicts so place queen
- //  printf("\n3)  %d-%d-%d",board[row],row,column);
-   //printf("\n%d-%d",board[row],column);
-   if(row==n) //dead end
+   if(row==n)
     print(n);
-   //printf("\nover");
-     //printing the board configuration
-   else //try queen with next position
+   else 
     queen(row+1,n);
   }
  }
